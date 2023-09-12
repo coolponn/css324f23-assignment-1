@@ -50,5 +50,19 @@ def h1(s):
 
 def h3(s):
     # implement this function
+    goal = (1, 2, 3, 4, 5, 6, 7, 8, 0)
     board, _, _ = s
-    return 0
+    tile = 0
+
+    for i in range(3):
+        for j in range(3):
+            value = board[i*3 + j]
+
+            if value != 0:
+                goal_i, goal_j = divmod(value - 1, 3)
+                if i != goal_i:
+                    tile+=1
+                if j != goal_j:
+                    tile+=1
+
+    return tile
